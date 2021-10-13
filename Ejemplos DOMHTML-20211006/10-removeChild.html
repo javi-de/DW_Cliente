@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RemoveChild</title>
+</head>
+
+<body>
+    <ul>
+        <li>Ford</li>
+        <li>Maserati</li>
+        <li>Seat</li>
+    </ul>
+    <p>
+        <button onclick="eliminar()">Reemplazar</button>
+    </p>
+
+    <script>
+        function eliminar() {
+            var nodoPadre = document.getElementsByTagName("ul")[0];
+            var primerHijo = document.getElementsByTagName("li")[0];
+
+            nodoPadre.removeChild(primerHijo);
+        }
+    </script>
+
+</body>
+
+</html>

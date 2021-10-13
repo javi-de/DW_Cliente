@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5.4</title>
+</head>
+<body>
+    <script>
+        do{
+            var num1= prompt("Introduce el primer número (entero): ")
+        }while(isNaN(num1));
+
+        do{
+            var num2= prompt("Introduce el segundo número (entero): ")
+        }while(isNaN(num2));
+
+
+        intNum1= parseInt(num1);
+        intNum2= parseInt(num2);
+        suma= sumarInts(intNum1, intNum2);
+        
+        document.write("<p>" +intNum1+ " + " +intNum2+ "= " +suma+ "</p>");
+
+        function sumarInts(int1, int2){
+            let suma= int1 + int2;
+
+            return suma;
+        }
+    </script>
+</body>
+</html>

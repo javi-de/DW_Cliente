@@ -1,0 +1,22 @@
+<html>
+<script type="text/javascript">
+    function crear() {
+        txt = document.getElementById("intro").childNodes[0].nodeValue;
+        x = document.createTextNode(txt);
+        y = document.createElement("p");
+        y.appendChild(x);
+        document.body.appendChild(y);
+
+    }
+</script>
+
+<body>
+
+    <p id="intro">Hola mundo!</p>
+    <p id="main">Creacion de elementos.</p>
+
+    <br />
+    <input type="button" value="crear parrafo" onclick="crear()">
+</body>
+
+</html>

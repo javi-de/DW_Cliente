@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select DOM</title>
+    <script>
+        function visualizar(){
+            var marcas = document.getElementById("idMarcas");
+            console.log(marcas.value);
+        }
+
+        window.onload = function () {
+            // Creamos el select
+            var x = document.createElement("select");
+
+            // El id
+            x.setAttribute("id", "idMarcas");
+            document.body.appendChild(x);
+
+            //Rellenamos las opciones con el contenido de un array
+
+            var coches = ["Audi", "Mercedes", "Opel"];
+
+            // Utilizamos el buche foreach para acceder a cada elemento
+
+            coches.forEach(coche => {
+
+                // creamos el elemento option
+
+                var opcion = document.createElement("option");
+
+                // el valor de cada uno de las opciones es el contenido de cada uno de los elementos del array
+                opcion.setAttribute("value", coche);
+
+                // creamos el nodo de datos que irá asociado al elemento nuevo creado
+                // el contenido del nodo es el coche actual del array
+
+                var nodo = document.createTextNode(coche);
+
+                // enganchamos ese nodo la opcion del select creado en este paso
+                opcion.appendChild(nodo);
+
+                //el conjunto de opciones se cuelga como hijo del nodo select
+                document.getElementById("idMarcas").appendChild(opcion);
+            });
+
+            // Asociamos un listener al nodo recién creado
+
+            document.getElementById("idMarcas").addEventListener("change",visualizar)
+
+        }
+
+    </script>
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

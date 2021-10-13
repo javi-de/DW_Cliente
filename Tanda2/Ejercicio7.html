@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio7</title>
+</head>
+<body>
+    <script>
+        let year= prompt("Escribe un año: ");
+        let dateIni= new Date(year, 0, 1);
+
+        let daysPassed= (new Date() - dateIni)/1000/3600/24;
+        let hoursPassed= daysPassed*24%24;
+        let minutesPassed= hoursPassed*60%60;
+        let secondsPassed= minutesPassed*60%60;
+
+        document.write("<p>Desde el " + dateIni.getDate() + "/" + (dateIni.getMonth() +1) + "/" + dateIni.getFullYear()
+                        + " han transcurrido " 
+                        + Math.trunc(daysPassed) + " días, " + Math.trunc(hoursPassed) + " horas, " 
+                        + Math.trunc(minutesPassed) + " minutos, " + Math.trunc(secondsPassed) + " segundos.</p>");
+    </script>
+</body>
+</html>

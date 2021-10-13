@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva etiqueta</title>
+</head>
+<body>
+    <div id="reemplazar">Texto anterior</div>
+    <script>
+        var escribir = "nuevo texto reemplzado";
+        var etiqueta = document.createElement("tag");
+        var texto = document.createTextNode(escribir);
+        var nuevoElemento = etiqueta.appendChild(texto);
+
+        // Una vez creado lo colgamos antes de caja: en el padre
+
+        var viejoElemento = document.getElementById("reemplazar");
+        var padre = viejoElemento.parentNode;
+        padre.replaceChild(nuevoElemento,viejoElemento);
+        
+    </script>
+    
+</body>
+</html>

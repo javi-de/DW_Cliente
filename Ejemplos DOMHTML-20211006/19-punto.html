@@ -1,0 +1,32 @@
+<html>
+  <head><title>Objects</title>
+
+  <script language="JavaScript">
+  
+  function first() {
+    alert("la caja de texto contiene el string: " + 
+      document.myForm.myText.value);
+  }
+  function second() {
+    var myString= "El checkbox ";
+    if (document.myForm.myCheckbox.checked) myString+= "esta marcado"
+      else myString+= "no esta marcado";
+
+    alert(myString);
+  }
+
+  // -->
+  </script>
+</head>
+<body>
+
+  <form name="myForm">
+    <input type="text" name="myText" value="texto de prueba">
+    <input type="button" name="button1" value="Boton 1" onClick="first()">
+    <p></p>
+    <input type="checkbox" name="myCheckbox" checked="checked">
+    <input type="button" name="button2" value="Boton 2" onClick="second()">
+  </form>
+
+</body>
+</html>

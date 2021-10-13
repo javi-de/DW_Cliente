@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5.1</title>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+
+            var palabras = new Array( 'botella', 'zeta', 'androide', 'minuto');
+            palabras.sort();
+
+            let eleParrafo= document.createElement("p");
+            let cadena="";
+            palabras.forEach( palabra =>{
+                cadena+= palabra + " - ";
+            })
+
+            eleParrafo.innerHTML= cadena;
+            document.body.appendChild(eleParrafo);
+        }
+    </script>
+
+</body>
+</html>

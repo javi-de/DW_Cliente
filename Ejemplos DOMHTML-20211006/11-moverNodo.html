@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reemplazar</title>
+
+    <!-- Cambiad del último al primero-->
+
+    <body>
+        <ul id="lista">
+            <li>Lanborgini</li>
+            <li>Maserati</li>
+            <li>Ferrari</li>
+            <li>Corvette</li>
+        </ul>
+        <p>
+            <button onclick="cambiar()">Reemplazar</button>
+        </p>
+
+        <script>
+            function cambiar() {
+                var longLista = document.getElementsByTagName("li").length;
+                console.log(longLista);
+
+                var nodoPadre = document.getElementsByTagName("ul")[0];
+                var primerHijo = document.getElementsByTagName("li")[0];
+
+                nodoPadre.removeChild(primerHijo);
+
+                document.getElementById("lista").appendChild(primerHijo);
+
+            }
+        </script>
+
+    </body>
+
+</html>

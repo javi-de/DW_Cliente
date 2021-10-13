@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>repliceChild</title>
+</head>
+
+<body>
+    <div>
+        <span id="nodoOriginal">Texto original</span>
+    </div>
+    <p>
+        <button onclick="reemplazar()">Reemplazar</button>
+    </p>
+    <script>
+        function reemplazar() {
+            console.log("Reemplazando....");
+            var sp1 = document.createElement("span");
+
+            sp1.setAttribute("id", "newSpan");
+
+            var sp1_content = document.createTextNode("Nuevo elemento span para reemplazo.");
+
+            sp1.appendChild(sp1_content);
+
+            var sp2 = document.getElementById("nodoOriginal");
+            var parentDiv = sp2.parentNode;
+
+            parentDiv.replaceChild(sp1, sp2);
+        }
+    </script>
+
+</body>
+
+</html>

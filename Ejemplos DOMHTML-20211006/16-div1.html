@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Div</title>
+
+    <style type="text/css">
+        #divform {
+            width: 50%;
+            float: left;
+        }
+        
+        #caja {
+            width: 500px;
+            left: 700px;
+            background-color: #999;
+            float: left;
+            display: none;
+            padding: 5px;
+            position: fixed;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <did id="divform">
+    </did>
+    <div id="caja">
+    </div>
+</body>
+
+
+
+</html>
+
+<script type="text/javascript">
+    var principal = document.getElementById("divform");
+    principal.innerHTML = "Hola";
+
+    var mensaje = document.getElementById('caja');
+    caja.innerHTML = "amigo";
+    caja.style.display = "block";
+</script>

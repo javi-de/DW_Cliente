@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio6</title>
+</head>
+<body>
+    <script>
+        
+        let strBirth= prompt("Introduce la fecha de nacimiento: (aaaa/mm/dd)");
+        arrBirth= strBirth.split('/');
+        let dateBirth= new Date(arrBirth[0], arrBirth[1]-1, arrBirth[2]);
+
+        let dateCurrent= new Date();
+
+        let age= (dateCurrent - dateBirth)/1000/3600/24/365; //miliseg/seg/dias/años
+
+        document.write("<p>Tienes " + Math.trunc(age) + " años.</p>");
+
+
+    </script>
+</body>
+</html>

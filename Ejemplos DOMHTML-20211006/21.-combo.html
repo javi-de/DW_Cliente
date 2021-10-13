@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combo</title>
+</head>
+<body>
+    <select name="ciudad" id="ciudad"></select>
+    
+    <script>
+
+        var ciudades = ["Gasteiz", "Donosti", "Bilbo"];
+
+        window.onload = function(){
+
+            var ciudad=document.getElementById("ciudad");
+
+            for(var i=0;i<ciudades.length;i++){
+                ciudad.options[i] = new Option(ciudades[i], i);
+            }
+
+            document.getElementById("ciudad").addEventListener("change",function(){
+                console.log(ciudades[ciudad.value]);
+            });
+        }
+
+    </script>
+</body>
+</html>

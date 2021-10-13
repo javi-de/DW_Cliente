@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <ul id="miLista">
+        <li>Café</li>
+        <li>Té</li>
+    </ul>
+
+    <p>Pulsa el botón para insertar al principio</p>
+
+    <button onclick="myFunction()">Aceptar</button>
+
+
+    <script>
+        function myFunction() {
+            var newItem = document.createElement("LI");
+            var textnode = document.createTextNode("Agua");
+            newItem.appendChild(textnode);
+
+            var lista = document.getElementById("miLista");
+            lista.insertBefore(newItem, lista.childNodes[0]);
+        }
+    </script>
+
+</body>
+
+</html>

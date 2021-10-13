@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function cambia_enlace() {
+            var elemento = document.getElementById("enlace");
+            elemento.innerHTML = 'Enlace a Yahoo';
+            elemento.href = "http://www.yahoo.es/"
+        }
+    </script>
+    <div id="botones">
+        <input type="button" onclick="javascript:cambia_enlace();" value="Cambia enlace" />
+    </div>
+    <p>
+        <div id="capa">
+            <a id="enlace" href="http://www.google.com">Enlace a Google</a>
+        </div>
+
+</body>
+
+</html>

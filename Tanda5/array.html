@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">  
+  <head>    
+    <title>Arrays</title>    
+    <meta charset="UTF-8">
+    <meta name="title" content="Título de la WEB">
+    <meta name="description" content="Descripción de la WEB">    
+	<script>
+		var array1 = ['a', 'b', 'c'];
+		
+		console.log("forEach método");
+
+		array1.forEach(function(element) {
+			console.log(element);
+		});
+		
+		var words = ['uno', 'dos', 'tres', 'cuatro'];
+		
+		/*
+		Cuando se alcanza el registro que contiene el valor "dos", 
+		el primer registro del array se desplaza, lo que hace que 
+		los registros restantes se muevan una posición. 
+		Debido a que el elemento "cuatro" está ahora en una posición 
+		anterior en el array, "tres" se omitirá. forEach() 
+		*/
+		
+		words.forEach(function(word) {
+		
+			console.log(word);
+			if (word === 'two') {
+				words.shift();
+			}
+		});
+			
+		var cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+		var text = "";
+		var i;
+		for (i = 0; i < cars.length; i++) {
+			text += cars[i] + "<br>";
+		}
+
+		console.log(text);
+		
+		console.log("Bucle for in")
+
+		var miArray = [ 2, 4, 6, 8, 10 ];
+		for (var indice in miArray) {
+			console.log("En el índice '" + indice + "' hay este valor: " + miArray[indice]);
+		}
+    
+		var miObjeto = { "marca":"audi", "edad":2 };
+		for (var propiedad in miObjeto) {
+			if (miObjeto.hasOwnProperty(propiedad)) {
+				console.log("En la propiedad '" + propiedad + "' hay este valor: " + miObjeto[propiedad]);
+			}
+		}
+
+		var misJugadores = ["Jordan","Jhonson", "Byrd", "Wilkinks"];
+
+		misJugadores.forEach( mijugador =>{
+			console.log(mijugador);
+		})
+
+		
+	</script>
+  </head>  
+  <body>    
+    
+  </body>  
+</html>

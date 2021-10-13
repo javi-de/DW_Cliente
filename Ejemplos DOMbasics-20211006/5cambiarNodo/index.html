@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva etiqueta</title>
+</head>
+<body>
+<p id="parrafo1">
+    Este es el párrafo 1
+    <p id="parrafo2">
+        Este es el párrafo2
+    </p>
+    <p id="parrafo3">
+        Este es el párrafo3
+    </p>
+</p>
+    <script>
+
+       // Cambiar parrafo 2 de sitio
+
+
+       var trasladar = document.getElementById("parrafo2")
+
+        trasladar.parentNode.removeChild(trasladar);
+
+        document.getElementById("parrafo3").appendChild(trasladar);
+        
+    </script>
+    
+</body>
+</html>

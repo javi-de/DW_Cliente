@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML</title>
+</head>
+
+<body>
+    <div id="mitexto">Texto original</div>
+    <p>
+        <button onclick="cambiar()">Cambiar</button>
+    </p>
+
+    <script>
+        function cambiar() {
+            document.getElementById("mitexto").innerHTML = "Texto cambiado";
+        }
+    </script>
+
+</body>
+
+</html>

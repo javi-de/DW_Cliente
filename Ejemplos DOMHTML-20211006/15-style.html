@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Styles</title>
+
+        <script language="JavaScript">
+
+        function cambiar(){
+            var myH1Array = document.getElementsByTagName("h1"); 
+            myH1Array[0].style.fontSize="12pt"; 
+            myH1Array[1].style.fontSize="18pt"; 
+        }
+
+        </script>
+    </head>
+    <body>
+
+        <h1>Primer encabezado</h1>
+        
+        <h1>Segundo encabezado</h1>
+        <br />
+        <br />
+        <input type="button" value="cambiar estilos" onclick="cambiar()" />
+    </body>
+</html>

@@ -11,12 +11,12 @@ function validarFecha(dia, mes, anio){
         return false;
     }
 
-    if(mes>1 || mes <12){
+    if(mes<1 || mes >12){
         console.log("error rango mes");
         return false;
     }
 
-    if(dia>1 || dia <31){
+    if(dia<1 || dia >31){
         console.log("error rango dia");
         return false;
     }
@@ -34,14 +34,14 @@ function calcularFechas(){
             console.log("has metido mas de tres cosas");
             return;
         }else{
+            let dia= arrDiaMesAnio[0];
+            let mes= arrDiaMesAnio[1];
+            let anio= arrDiaMesAnio[2];
+
             if(!validarFecha(dia, mes, anio)){
                 console.log("maaaaaaaaaaaaaaaaaal");
                 return;
             }else{
-                let dia= arrDiaMesAnio[0];
-                let mes= arrDiaMesAnio[1];
-                let anio= arrDiaMesAnio[2];
-
                 let arrFechasAnteriores=[];
                 for(let cont= 0; cont<= 4; cont++){
                     let fechaAnterior= new Date((anio - cont), mes-1, dia)

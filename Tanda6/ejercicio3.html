@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6.3</title>
+</head>
+<body>
+    <h1>SELECT</h1>
+    <p>Selecciona las opciones deseadas</p>
+    <form>
+        <table>
+            <tr>
+                <th>Procesador</th>
+                <th>Sistema operativo</th>
+            </tr>
+            <tr>
+                <td>
+                    <select id="procesadores">
+                        <option value="Mac Pro 2.0 Mhz" >Mac Pro 2.0 Mhz</option>
+                        <option value="Intel i3 1.9 Mhz">Intel i3 1.9 Mhz"</option>
+                        <option value="Intel i5 2.2 Mhz">Intel i5 2.2 Mhz</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="SOs" multiple>
+                        <option value="Windows XP">Windows XP</option>
+                        <option value="Windows 7">Windows 7</option>
+                        <option value="Windows Server 2008">Windows Server 2008</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <button type="button" onclick="mostrarSelect()">Enviar</button>
+            <button type="reset">Limpiar</button>
+        </div>
+    </form>
+    <script src="ejercicio3_app.js"></script>
+</body>
+</html>

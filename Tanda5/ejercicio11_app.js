@@ -9,6 +9,7 @@ function empezarJuego(){
     let numSecreto= generarNumSecreto();
     let numRespuesta;
     let contIntentos= 0;
+    
     do{
         numRespuesta= prompt("Introduce un número (entre 1 y 100): ");
 

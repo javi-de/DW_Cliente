@@ -5,31 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 6.4</title>
+    <style>
+        div{
+            padding: 5px;
+            margin: 5px;
+        }
+
+        body{
+            position: absolute;
+        }
+
+        #info{
+            background-color: grey;
+            position: absolute;
+            left: 600px;
+            top: 50px;
+            width: 500px;
+            padding: 5px;
+        }
+
+        #info h2{
+            color: blue;
+        }
+
+    </style>
 </head>
 <body>
+    <h1>FORMULARIO</h1>
     <form>
         <div>
-            <label for="txtNombre">Nombre: </label>
+            <label for="txtNombre">Nombre*: </label>
             <input type="text" name="txtNombre" id="txtNombre">
         </div>
         <div>
-            <label for="txtDni">DNI: </label>
-            <input type="text" name="txtDni" id="txtDni">
-            
-            <label for="txtLetra">Letra: </label>
-            <input type="text" name="txtLetra" id="txtLetra">
+            <label for="txtDni">DNI*: </label>
+            <input type="text" name="txtDni" id="txtDni" size="8" onblur="validar()">
+
+            <label for="txtLetra">Letra*: </label>
+            <input type="text" name="txtLetra" id="txtLetra" size="1" readonly>
         </div>
         <div>
-            <label for="txtPass">Clave: </label>
+            <label for="txtPass">Clave*: </label>
             <input type="password" name="txtPass" id="txtPass">
         </div>
         <div>
-            <label for="areaOpinion">Opinión: </label>
-            <textarea name="areaOpinion" id="areaOpinion">
-                Muy buena
-            </textarea>
+            <label for="areaOpinion">Opinión: </label><br>
+            <textarea name="areaOpinion" id="areaOpinion" rows="10" cols="50" maxlength="50" placeholder="Muy buena. Caracteres permitidos: 50"></textarea>
+        </div>
+        <div>
+            <label for="txtNumCar">Número máximo de caracteres: </label>
+            <input type="txt" name="txtNumCar" id="txtNumCar" size="3" onchange=establecerMaxLength(txtNumCar.value)>
+        </div>
+        <div>
+            <label for="chkEdad">Mayor de edad: </label>
+            <input type="checkbox" name="chkEdad" id="chkEdad">
+        </div>
+        <div>
+            Sexo*: 
+            <br>
+            <label for="radioSexo">Masculino </label>
+            <input type="radio" name="radioSexo" value="masculino">
+            <br>
+            <label for="radioSexo">Femenino </label>
+            <input type="radio" name="radioSexo" value="femenino">
+            <br>
+            <label for="radioSexo">Otro </label>
+            <input type="radio" name="radioSexo" value="otro" checked>
+        </div>
+        <div>
+            Sueldo anual: 
+            <br>
+            <label for="radioSueldo">menos de 10.000€ </label>
+            <input type="radio" name="radioSueldo" value="menos de 10.000€">
+            <br>
+            <label for="radioSueldo">de 10.000 a 20.000€ </label>
+            <input type="radio" name="radioSueldo" value="de 10.000 a 20.000€" checked>
+            <br>
+            <label for="radioSueldo">mas de 20.000€ </label>
+            <input type="radio" name="radioSueldo" value="mas de 20.000€">
+        </div>
+        <div>
+            <label for="fileFichero">Fichero: </label>
+            <input type="file" name="fileFichero">
+        </div>
+        <div>
+            Provincia*: 
+            <select id="provincia"> 
+                <option value="">Elegir provincia</option>
+                <option value="Alava">Álava</option>
+                <option value="Guipuzcua">Guipúzcua</option>
+                <option value="Vizcaya">Vizcaya</option>
+            </select>
+            Hobbies: 
+            <select id="Hobbies" multiple>
+                <option value="Chat">Chat</option>
+                <option value="Juegos">Juegos</option>
+                <option value="Arte">Arte</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" id="butEnviar" onclick="mostrarInfo()">Enviar</button>
+            <button type="reset" id="butLimpiar" onclick="borrarCaja()">Limpiar</button>
         </div>
     </form>
+    <div id="info">
+        <h2>Datos formulario</h2>
+        <div id="contenido">
+        </div>
+    </div>
     <script src="ejercicio4_app.js"></script>
 </body>
 </html>

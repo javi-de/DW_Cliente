@@ -15,7 +15,7 @@
             position: absolute;
         }
 
-        #info{
+        #contenido{
             background-color: grey;
             position: absolute;
             left: 600px;
@@ -24,7 +24,7 @@
             padding: 5px;
         }
 
-        #info h2{
+        #contenido h2{
             color: blue;
         }
 
@@ -50,7 +50,7 @@
         </div>
         <div>
             <label for="areaOpinion">Opinión: </label><br>
-            <textarea name="areaOpinion" id="areaOpinion" rows="10" cols="50" maxlength="50" placeholder="Muy buena. Caracteres permitidos: 50"></textarea>
+            <textarea name="areaOpinion" id="areaOpinion" rows="10" cols="50" maxlength="50" placeholder="Caracteres permitidos: 50"></textarea>
         </div>
         <div>
             <label for="txtNumCar">Número máximo de caracteres: </label>
@@ -75,14 +75,14 @@
         <div>
             Sueldo anual: 
             <br>
-            <label for="radioSueldo">menos de 10.000€ </label>
-            <input type="radio" name="radioSueldo" value="menos de 10.000€">
+            <label for="radioSueldo">menos de 10.000 € </label>
+            <input type="radio" name="radioSueldo" value="menos de 10.000 €">
             <br>
-            <label for="radioSueldo">de 10.000 a 20.000€ </label>
-            <input type="radio" name="radioSueldo" value="de 10.000 a 20.000€" checked>
+            <label for="radioSueldo">de 10.000 a 20.000 € </label>
+            <input type="radio" name="radioSueldo" value="de 10.000 a 20.000 €" checked>
             <br>
-            <label for="radioSueldo">mas de 20.000€ </label>
-            <input type="radio" name="radioSueldo" value="mas de 20.000€">
+            <label for="radioSueldo">mas de 20.000 € </label>
+            <input type="radio" name="radioSueldo" value="mas de 20.000 €">
         </div>
         <div>
             <label for="fileFichero">Fichero: </label>
@@ -97,7 +97,7 @@
                 <option value="Vizcaya">Vizcaya</option>
             </select>
             Hobbies: 
-            <select id="Hobbies" multiple>
+            <select id="hobbies" multiple>
                 <option value="Chat">Chat</option>
                 <option value="Juegos">Juegos</option>
                 <option value="Arte">Arte</option>
@@ -109,9 +109,13 @@
         </div>
     </form>
     <div id="info">
-        <h2>Datos formulario</h2>
-        <div id="contenido">
-        </div>
+        <!-- esto se crea a través de la función monstrarInfo()
+            <div id="contenido">
+             <h2>Datos formulario</h2> 
+             <p>
+                 TODOS LOS DATOS
+             </p>
+        </div>-->
     </div>
     <script src="ejercicio4_app.js"></script>
 </body>

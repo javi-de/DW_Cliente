@@ -42,9 +42,8 @@ function establecerMaxLength(numMax){
     else{
         // console.log(numMax);
         document.getElementById("areaOpinion").setAttribute("maxlength", numMax);
-        document.getElementById("areaOpinion").placeholder= "Muy buena. Caracteres permitidos: " + numMax;  
-    }
-        
+        document.getElementById("areaOpinion").placeholder= "Caracteres permitidos: " + numMax;  
+    }     
 }
 
 function validarNum(num){
@@ -55,7 +54,8 @@ function validarNum(num){
 
 }
 
-//validar que se hayan rellenado los campos: nombre, dni, clave, sexo, y provincia
+//validar que se hayan rellenado los campos: nombre, dni, clave, sexo y provincia 
+//y mostrar toda la información rellenada
 function mostrarInfo(){
     //campos obligatorios
     let campoNombre= document.getElementById("txtNombre").value;
@@ -88,8 +88,8 @@ function mostrarInfo(){
     else
         campoMayorEdad= "NO";
 
-    let campoSueldo;
-    let arrSueldo=  document.getElementsByName("radioSueldo");
+    let campoSueldo="";
+    let arrSueldo= document.getElementsByName("radioSueldo");
     arrSueldo.forEach(eleRadio => {
         if(eleRadio.checked)
         campoSueldo= eleRadio.value; 
@@ -97,49 +97,66 @@ function mostrarInfo(){
 
     // let campoFichero;
 
-    let campoHobbies;
-    let selectHobbies= document.getElementById("SOs");
-
-    for (let i= 0; i< selectSOs.options.length; i++) {
-        const opcion = selectSOs.options[i];
-        if(opcion.selected)    
-            resultado+= "el SOs " + opcion.value + ", ";
+    let campoHobbies="";
+    let selectHobbies= document.getElementById("hobbies");
+    for (let i= 0; i< selectHobbies.options.length; i++) {
+        const opcion= selectHobbies.options[i];
+        if(opcion.selected)
+            campoHobbies+= opcion.value + "  ";
     }
-
-    // if(campoNombre== "" || campoDni== "" || campoClave== "" ||  campoSexo== "" ||  campoProvincia== "")
-    //     alert("Faltan campos obligatorios: comprueba nombre, dni, clave, sexo y provincia");
-    // else{
-        // console.log(campoNombre);
-        // console.log(campoDni);
-        // console.log(campoClave);
-        // console.log(campoSexo);
-        // console.log(campoProvincia);
-
-        // console.log(campoOpinion);
-        // console.log(campoNumCar);
-        // console.log(campoMayorEdad);
-        // console.log(campoSueldo);
-        // console.log(campoFichero);
-        console.log(campoHobbies);
-
+    
+    //if(campoNombre== "" || campoDni== "" || campoClave== "" ||  campoSexo== "" ||  campoProvincia== "")
+    //    alert("Faltan campos obligatorios: comprueba nombre, dni, clave, sexo y provincia");
+    //else{
+        //console.log(campoNombre);
+        //console.log(campoDni);
+        //console.log(campoClave);
+        //console.log(campoSexo);
+        //console.log(campoProvincia);
         
-        let eleContenido= document.getElementById("contenido");
+        //console.log(campoOpinion);
+        //(no es necesario)console.log(campoNumCar);
+        //console.log(campoMayorEdad);
+        //console.log(campoSueldo);
+        //console.log(campoFichero);
+        //console.log(campoHobbies);
 
-        eleInformacion= document.createElement("p");
-        eleInformacion.innerHTML+= "<br><strong>nombre:</strong> " + campoNombre;
-        eleInformacion.innerHTML+= "<br><strong>DNI:</strong> " + campoDni;
-        eleInformacion.innerHTML+= "<br><strong>Clave:</strong> " + campoClave;
-        //opinion 
-        //numCar
-        //mayorEdad
-        eleInformacion.innerHTML+= "<br><strong>Sexo:</strong> " + campoSexo;
-        //sueldo
+        let eleInfo= document.getElementById("info");
+
+        //cada vez que se pulsa el boton Enviar se sea el div "contenido" para SOBRESCRIBIR los datos
+        let eleContenido= document.createElement("div");
+        eleContenido.setAttribute("id", "contenido");
+
+
+        let eleTitulo= document.createElement("h2");
+        eleTitulo.innerHTML= "Datos Formulario";
+
+        let eleInformacion= document.createElement("p");
+
+        eleInformacion.innerHTML= "";
+
+        /***/eleInformacion.innerHTML+= "<br><strong>Nombre:</strong> " + campoNombre;       
+        /***/eleInformacion.innerHTML+= "<br><strong>DNI:</strong> " + campoDni;        
+        /***/eleInformacion.innerHTML+= "<br><strong>Clave:</strong> " + campoClave;
+        if(campoOpinion!="")
+            eleInformacion.innerHTML+= "<br><strong>Opinion:</strong> " + campoOpinion;
+        eleInformacion.innerHTML+= "<br><strong>Mayor de edad:</strong> " + campoMayorEdad;
+        /***/eleInformacion.innerHTML+= "<br><strong>Sexo:</strong> " + campoSexo;
+        eleInformacion.innerHTML+= "<br><strong>Sueldo:</strong> " + campoSueldo;
         //fichero
-        eleInformacion.innerHTML+= "<br><strong>Provincia:</strong> " + campoProvincia;
-        //hobbies
+        /***/eleInformacion.innerHTML+= "<br><strong>Provincia:</strong> " + campoProvincia;
+        if(campoHobbies!="")
+            eleInformacion.innerHTML+= "<br><strong>Hobbies:</strong> " + campoHobbies;
 
+
+        eleContenido.appendChild(eleTitulo);
         eleContenido.appendChild(eleInformacion);
 
+        eleInfo.appendChild(eleContenido);
+    //}
+}
 
-    // }
+function borrarCaja(){
+    let eleContenido= document.getElementById("contenido");
+    eleContenido.remove();
 }

@@ -9,7 +9,7 @@ function mostrarSelect(){
     let selectSOs= document.getElementById("SOs");
 
     for (let i= 0; i< selectSOs.options.length; i++) {
-        const opcion = selectSOs.options[i];
+        const opcion= selectSOs.options[i];
         if(opcion.selected)    
             resultado+= "el SOs " + opcion.value + ", ";
     }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Números pares de 25 en 25</h1>
+
+    <p>
+    <script>
+        num=2;
+
+        do{
+
+            for(cont=1;cont<=25;cont++){
+                document.write(num+",");
+
+                if(num%10==0){
+                    document.write("<br>");
+                }
+                num+=2;
+            }
+
+        } while(confirm("¿Desea continuar?"));
+    </script>
+    </p>
+</body>
+</html>

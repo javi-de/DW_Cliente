@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sumatorios</h1>
+    <script>
+        fact=0;
+        contn=0;
+
+        for(num=1;num<=100;num++){
+            for(cont=1;cont<=num;cont++){
+                fact+=cont;
+            }
+
+            if(fact>=1000){
+                break;
+            }
+            
+            if(fact%2!=0){
+                document.write(fact+",");
+                contn++;
+            }
+
+            if(contn==4){
+                document.write("<br>");
+                contn=0;
+            }
+
+            fact=0;
+
+        }
+    </script>
+</body>
+</html>

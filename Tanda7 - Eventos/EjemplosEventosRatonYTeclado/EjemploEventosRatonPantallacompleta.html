@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejemplo Objeto Event</title>
+
+<script type="text/javascript">
+window.onload = function() {
+	document.onclick = muestraInformacion;
+	var caja= document.getElementById("info");
+	caja.innerHTML += "<br/> Resolucion de la pantalla:" + screen.width + ", "+ screen.height;
+	caja.innerHTML += "<br/> Resolucion de la pantalla Disponble:" + screen.availWidth + ", "+ screen.availHeight;
+}
+function muestraInformacion(elEvento) {
+	var evento = elEvento || window.event;
+	var coordenadaX = evento.screenX;
+	var coordenadaY = evento.screenY;
+	alert("Has pulsado el ratón en la posición: " + coordenadaX + ", " + coordenadaY);
+}
+</script>
+</head>
+
+<body>
+<div id="info" style="width:1800px; height:999px; border:thin solid red">COORDENAS RESPECTO DE LA PANTALLA COMPLETA</div>
+</body>
+</html>

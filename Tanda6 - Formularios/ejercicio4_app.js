@@ -9,9 +9,7 @@ function validar(){
 
     if(patronDni.test(eleDni.value)==false){
         alert("ERROR. DNI erróneo: debes introducdir los 8 dígitos de tu DNI");
-        setTimeout( function(){
-                        eleDni.focus();
-                    }, 100 );
+        setTimeout( function(){eleDni.focus();}, 100 );
     }else{
         letraDni= generarLetra(eleDni.value);
         document.getElementById("txtLetra").value=letraDni;
@@ -105,9 +103,9 @@ function mostrarInfo(){
             campoHobbies+= opcion.value + "  ";
     }
     
-    //if(campoNombre== "" || campoDni== "" || campoClave== "" ||  campoSexo== "" ||  campoProvincia== "")
-    //    alert("Faltan campos obligatorios: comprueba nombre, dni, clave, sexo y provincia");
-    //else{
+    if(campoNombre== "" || campoDni== "" || campoClave== "" ||  campoSexo== "" ||  campoProvincia== "")
+        alert("Faltan campos obligatorios: comprueba nombre, dni, clave, sexo y provincia");
+    else{
         //console.log(campoNombre);
         //console.log(campoDni);
         //console.log(campoClave);
@@ -123,10 +121,9 @@ function mostrarInfo(){
 
         let eleInfo= document.getElementById("info");
 
-        //cada vez que se pulsa el boton Enviar se sea el div "contenido" para SOBRESCRIBIR los datos
+        //cada vez que se pulsa el boton Enviar se crea el div "contenido" para SOBRESCRIBIR los datos
         let eleContenido= document.createElement("div");
         eleContenido.setAttribute("id", "contenido");
-
 
         let eleTitulo= document.createElement("h2");
         eleTitulo.innerHTML= "Datos Formulario";
@@ -153,7 +150,7 @@ function mostrarInfo(){
         eleContenido.appendChild(eleInformacion);
 
         eleInfo.appendChild(eleContenido);
-    //}
+    }
 }
 
 function borrarCaja(){

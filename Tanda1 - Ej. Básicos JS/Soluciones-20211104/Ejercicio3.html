@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Mundo</title>
+</head>
+<body>
+
+    <h1>Números pares entre 1 y 100</h1>
+    <script>
+        
+        var cont = 1;
+        var linea = "";
+        var num=2;
+
+        while(num<=100){
+            linea+=num;
+
+            if(cont==5){
+                document.write(linea+"<br>");
+                linea = "";
+                cont = 1;
+            }
+            else{
+                linea+=",";
+                cont++;
+            }
+
+            num+=2;
+        }
+
+    </script>
+</body>
+</html>

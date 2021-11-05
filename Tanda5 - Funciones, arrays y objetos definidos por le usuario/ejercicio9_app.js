@@ -31,7 +31,7 @@ function calcularFechas(){
         let arrDiaMesAnio= fecha.split("/");
 
         if(arrDiaMesAnio.length!= 3) {
-            console.log("has metido mas de tres cosas");
+            console.log("has metido mas o menos de tres cosas");
             return;
         }else{
             let dia= arrDiaMesAnio[0];

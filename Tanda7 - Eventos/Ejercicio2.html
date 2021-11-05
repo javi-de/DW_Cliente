@@ -5,24 +5,63 @@
 <title>Ejercicio2</title>
 
 <style type="text/css">
-body {font-family: arial, helvetica;}
-#info {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
-#info h1 {margin: 0;}
+	body {font-family: arial, helvetica;}
+	#info {
+		width:160px; 
+		border:thin solid silver; 
+		padding:.5em; 
+		position:fixed;
+		background-color: aquamarine;
+	}
+	#info h1 {margin: 0;}
 </style>
 
 <script type="text/javascript">
-function muestraInformacion(mensaje) {
-	document.getElementById("info").innerHTML = '<h1>'+mensaje[0]+'</h1>';
-	for(var i=1; i<mensaje.length; i++) {
-		document.getElementById("info").innerHTML += '<p>'+mensaje[i]+'</p>';
+	function muestraInformacion(mensaje) {
+		document.getElementById("info").innerHTML = '<h1>'+mensaje[0]+'</h1>';
+		for(var i=1; i<mensaje.length; i++) {
+			document.getElementById("info").innerHTML += '<p>'+mensaje[i]+'</p>';
+		}
 	}
-}
 
-window.onload=function(){
-	document.onmousemove=informacion;
-	document.onkeypress=informacion;
-	
-}
+	window.onload= function(){
+		document.onmousemove= informacion;
+		document.onkeypress= informacion;		
+	}
+
+	function informacion(fuente){
+		let tipoEvento= fuente.type;
+		let mensaje= [];
+		
+		if(tipoEvento== "mousemove"){			
+			let navX= fuente.pageX;
+			let navY= fuente.pageY;
+
+			let pagX= fuente.clientX;
+			let pagY= fuente.clientY;
+
+			mensaje[0]= "Ratón";
+			mensaje[1]= "Navegador: [" + navX + ", " + navY + "] <br>" + 
+						"Página: [" + pagX + ", " + pagY + "] <br>";	
+		
+			document.body.style.backgroundColor= "white";
+			
+		}else if("keypress"){
+			let carASCII= fuente.keyCode;
+			let carTxt= String.fromCharCode(carASCII);
+
+
+			mensaje[0]= "Teclado";
+			mensaje[1]= "Carácter: " + carTxt +"<br>" + 
+						"Código ASCI: " + carASCII +"<br>";
+		
+			document.body.style.backgroundColor= "#CCE6FF";
+		}
+
+		muestraInformacion(mensaje);
+	}
+
+
 </script>
 </head>
 

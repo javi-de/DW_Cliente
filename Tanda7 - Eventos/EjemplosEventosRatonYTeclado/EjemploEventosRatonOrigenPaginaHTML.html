@@ -5,26 +5,27 @@
 <title>Ejemplo Objeto Event</title>
 
 <script type="text/javascript">
-window.onload = function() {
-	document.onclick = muestraInformacion;
-	var caja= document.getElementById("info");
-	caja.innerHTML += "<br/> Resolucion de la pantalla:" + screen.width + ", "+ screen.height;
-	caja.innerHTML += "<br/> Disponble:" + screen.availWidth + ", "+ screen.availHeight;
-}
-function muestraInformacion(elEvento) {
-	var evento = elEvento || window.event;
-	// Detectar si el navegador es Internet Explorer
-	var ie = navigator.userAgent.toLowerCase().indexOf('msie')!=-1;
-	if(ie) {
-		coordenadaX = evento.clientX + document.body.scrollLeft;
-		coordenadaY = evento.clientY + document.body.scrollTop;
+	window.onload = function() {
+		document.onclick = muestraInformacion;
+		var caja= document.getElementById("info");
+		caja.innerHTML += "<br/> Resolucion de la pantalla:" + screen.width + ", "+ screen.height;
+		caja.innerHTML += "<br/> Disponble:" + screen.availWidth + ", "+ screen.availHeight;
 	}
-	else {
-	coordenadaX = evento.pageX;
-	coordenadaY = evento.pageY;
+	
+	function muestraInformacion(elEvento) {
+		var evento = elEvento || window.event;
+		// Detectar si el navegador es Internet Explorer
+		var ie = navigator.userAgent.toLowerCase().indexOf('msie')!=-1;
+		if(ie) {
+			coordenadaX = evento.clientX + document.body.scrollLeft;
+			coordenadaY = evento.clientY + document.body.scrollTop;
+		}
+		else {
+			coordenadaX = evento.pageX;
+			coordenadaY = evento.pageY;
+		}
+		alert("Has pulsado el ratï¿½n en la posiciï¿½n: " + coordenadaX + ", " + coordenadaY + "respecto de la pï¿½gina web");
 	}
-	alert("Has pulsado el ratón en la posición: " + coordenadaX + ", " + coordenadaY + "respecto de la página web");
-}
 </script>
 </head>
 

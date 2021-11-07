@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10.5</title>
+</head>
+<style>
+    #capa{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+
+        background-color: grey;
+
+        
+        clip: rect(100px,100px,100px,100px);
+        /*    rect(top, right, bottom, left)
+            top y bottom: eje Y -> top oculta la capa de arriba a abajo (de 0 a altura max.)
+                                   bottom oculta la capa de abajo a arriba (de altura max. a 0)
+            es decir, si top= 0 y bottom= altura max. -> la capa se veria totalmente (respecto al eje Y)
+
+            right y left: eje X -> right oculta la capa de izq. a dcha. (de 0 a achura max.)
+                                   bottom oculta la capa de dcha. a izq. (de achura max. a 0)
+            es decir, si right= 0 y left= tamaño max. -> la capa se veria totalmente (respecto al eje X)
+
+            por tanto: capa completa -> rect(0px,200px,200px,0px);
+        */
+    }
+</style>
+<body>
+    <div id= "capa">
+        <ol>
+            <li>Mi</li>
+            <li>capa</li>
+            <li>que</li>
+            <li>va</li>
+            <li>apareciendo</li>
+            <li>poco</li>
+            <li>a</li>
+            <li>poco</li>           
+        </ol>
+    </div>
+
+    <script src="ejercicio5_app.js"></script>
+</body>
+</html>

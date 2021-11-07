@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10.2</title>
+</head>
+<style>
+    #butArrancar{
+        display: inline-block;
+    }
+
+    #butParar, #butAcelerar, #butDesacelerar{
+        display: none;
+    }
+
+    #cochazo{
+        position: relative;
+    }
+</style>
+<body>
+        <button type="button" id="butArrancar" onclick="arrancar()">Arrancar</button>
+        <button type="button" id="butParar" onclick="parar()">Parar</button>
+        <button type="button" id="butAcelerar" onclick="acelerar()">Acelerar</button>
+        <button type="button" id="butDesacelerar" onclick="desacelerar()">Desacelerar</button>
+
+        <div id="capaCoche">
+            <img src="recursos_capas/car.png" id="cochazo" width="150" height="150">
+        </div>
+
+    <script src="ejercicio2_app.js"></script>
+</body>
+</html>

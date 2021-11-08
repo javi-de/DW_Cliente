@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<!--
+    Almacen siempre un valor con la misma clave.
+    Sólo un valor
+
+-->
+<html>
+
+<head>
+    <title>Ejemplo LocalStorage HTML5</title>
+
+    <script>
+        function guardarDatos() {
+            localStorage.nombre = document.getElementById("nombre").value;
+            localStorage.password = document.getElementById("password").value;
+        }
+
+        function recuperarDatos() {
+            if ((localStorage.nombre != undefined) && (localStorage.password != undefined)) {
+                document.getElementById("datos").innerHTML = "Nombre: " + localStorage.nombre + " Password: " + localStorage.password;
+            } else {
+                document.getElementById("datos").innerHTML = "No has introducido tu nombre y tu password";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" />
+
+    <label for="nombre">Password:</label>
+    <input type="text" id="password" />
+
+    <input type="button" onclick="guardarDatos()" value="Guardar datos" />
+
+    <p id="datos">Pulsa para ver tu nombre y tu password.</p>
+    <input type="button" onclick="recuperarDatos()" value="Recuperar datos" />
+</body>
+
+
+
+</html>

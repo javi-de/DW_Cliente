@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ejemplo de almacenamiento local con HTML5</title>
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+        }
+        
+        span#mensajes {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body onload="refrescaTodo()">
+    <h1>EJEMPLO DE ALMACENAMIENTO LOCAL CON HTML5</h1>
+
+    <span id="mensajes"></span><br/><br/> AREA DE ALMACENAMIENTO:
+    <select onchange="actualizarTipo(this.value)" id="tipo">
+<option value="local">LOCAL</option>
+<option value="sesion">SESION</option>
+</select><br/> CLAVE: <input type="text" id="clave" /><br/> VALOR: <input type="text" id="valor" /><br/><br/>
+    <button onclick="guardar()">GUARDAR</button>
+    <button onclick="eliminar()">ELIMINAR</button>
+    <button onclick="refrescaTodo()">REFRESCAR</button>
+    <button onclick="compruebaCompatibilidad()">COMPROBAR COMPATIBILIDAD DEL NAVEGADOR</button>
+
+    <br/><br/>
+    <table>
+        <tr>
+            <td>
+                CLAVES Y VALORES EN LOCAL STORAGE:<br/>
+                <textarea rows="10" cols="50" id="almacenamientoLocal" readonly="readonly"></textarea>
+            </td>
+            <td>
+                CLAVES Y VALORES EN SESSION STORAGE:<br/>
+                <textarea rows="10" cols="50" id="almacenamientoSesion" readonly="readonly"></textarea>
+            </td>
+        </tr>
+    </table>
+    <p>Puedes probar a guardar valores con almacenamiento local y de sesi&oacute;n, cierra y abre el navegador o la pesta&ntilde;a y observar&aacute;s que se pierden los datos almacenados en sesi&oacute;n pero no los locales.</p>
+    <p>Tambi&eacute;n puedes probar a abrir dos ventanas guardar valores con almacenamiento local en una de ellas y ver como aparecen en la otra (por desgracia no funciona en Internet Explorer).</p>
+    <script type="text/javascript">
+        // por defecto almacenamiento local
+        var storage = localStorage;
+
+        function guardar() {
+            var clave = document.getElementById('clave').value;
+            var valor = document.getElementById('valor').value;
+            if (clave == '' || valor == '') {
+                alert('Por favor, rellena clave y valor');
+                return;
+            }
+            storage.setItem(clave, valor);
+            anadirMensaje('Valor guardado ' + clave + '=' + valor + ' con area de almacenamiento ' + document.getElementById('tipo').value);
+            limpiar();
+            refrescaTodo();
+        }
+
+        function limpiar() {
+            document.getElementById('clave').value = '';
+            document.getElementById('valor').value = '';
+        }
+
+        function refrescaTodo() {
+            refrescar(localStorage, document.getElementById('almacenamientoLocal'));
+            refrescar(sessionStorage, document.getElementById('almacenamientoSesion'));
+        }
+
+        function refrescar(storage, area) {
+            area.innerHTML = '';
+            for (var i = 0; i < storage.length; i++) {
+                var clave = storage.key(i);
+                var valor = storage.getItem(clave);
+                area.innerHTML += (clave + '=' + valor + '\n');
+            }
+        }
+
+        function eliminar() {
+            var clave = document.getElementById('clave').value;
+            if (clave == '') {
+                alert('Por favor, rellena clave');
+                return;
+            }
+            storage.removeItem(clave);
+            limpiar();
+            anadirMensaje('Valor eliminado con tipo de almacenamiento ' + document.getElementById('tipo').value);
+            refrescaTodo();
+        }
+
+        function actualizarTipo(tipo) {
+            if (tipo == 'sesion') {
+                storage = sessionStorage;
+            } else {
+                storage = localStorage;
+            }
+        }
+
+        function compruebaCompatibilidad() {
+            if (window.sessionStorage && window.localStorage) {
+                anadirMensaje('Tu navegador acepta almacenamiento local');
+            } else {
+                anadirMensaje('Lo siento, pero tu navegador no acepta almacenamiento local');
+            }
+        }
+
+        function anadirMensaje(mensaje) {
+            var contenedorMensajes = document.getElementById('mensajes');
+            contenedorMensajes.innerHTML = mensaje;
+            setTimeout(function() {
+                contenedorMensajes.innerHTML = '';
+            }, 3000);
+        }
+
+        // función que será invocada cuando se produzca un almacenamiento 
+        function eventoAlmacenamiento(e) {
+            refrescaTodo();
+        }
+
+        // añadimos el listener que dispará la función cuando se produzca el evento de almacenamiento
+        window.addEventListener("storage", eventoAlmacenamiento, false);
+    </script>
+
+</body>
+
+</html>

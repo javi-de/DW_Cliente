@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON localstorage</title>
+    
+</head>
+<body>
+    <button onClick="mostrar()">Mostrar</button>
+    <div id="mensaje"></div>
+    <script>
+        var miObjeto = { 'marcado': 'html5', 'estilo': 'css3', 'comportamiento': 'js' };
+
+        // Guardo el objeto como un string
+        localStorage.setItem('datos', JSON.stringify(miObjeto));
+
+        function mostrar(){
+            // Obtengo el string previamente salvado y luego
+            var guardado = localStorage.getItem('datos');
+            var datos =  JSON.parse(guardado);
+            console.log(datos);
+            document.getElementById("mensaje").innerHTML = datos.marcado;
+        }
+    </script>
+
+</body>
+</html>

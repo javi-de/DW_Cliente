@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <title>CRUD con Local Storage</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <h1 class="jumbotron">Ejemplo de CRUD usando Local Storage</h1>
+
+                <table id="grid" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Trabajo</th>
+                            <th>Edad</th>
+                            <th style="width:80px;">
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <input id="name" type="text" class="form-control" />
+                            </th>
+                            <th>
+                                <input id="job" type="text" class="form-control" />
+                            </th>
+                            <th>
+                                <input id="age" type="text" class="form-control" />
+                            </th>
+                            <th>
+                                <button id="btn-add" class="btn btn-default">Aceptar</button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var localStorageKeyName = 'data';
+
+            loadFromLocalStorage();
+
+            document.querySelector("#btn-add").addEventListener('click', function() {
+                var name = document.getElementById("name"),
+                    job = document.getElementById("job"),
+                    age = document.getElementById("age");
+
+                // Validate
+                if (name.value.length === 0 || job.value.length === 0 || !parseInt(age.value)) return;
+
+                var user = {
+                    name: name.value,
+                    job: job.value,
+                    age: age.value
+                };
+
+                // Clean data
+                name.value = '';
+                job.value = '';
+                age.value = '';
+
+                // Append to my localStorage
+                appendObjectToLocalStorage(user);
+            })
+
+            function appendObjectToLocalStorage(obj) {
+                var users = [],
+                    dataInLocalStorage = localStorage.getItem(localStorageKeyName);
+
+                if (dataInLocalStorage !== null) {
+                    users = JSON.parse(dataInLocalStorage);
+                }
+
+                users.push(obj);
+
+                localStorage.setItem(localStorageKeyName, JSON.stringify(users));
+
+                loadFromLocalStorage();
+            }
+
+            function loadFromLocalStorage() {
+                var users = [],
+                    dataInLocalStorage = localStorage.getItem(localStorageKeyName),
+                    gridBody = document.querySelector("#grid tbody");
+
+                if (dataInLocalStorage !== null) {
+                    users = JSON.parse(dataInLocalStorage);
+                }
+
+                // Draw TR from TBODY
+                gridBody.innerHTML = '';
+
+                users.forEach(function(x, i) {
+                    var tr = document.createElement("tr"),
+                        tdName = document.createElement("td"),
+                        tdJob = document.createElement("td"),
+                        tdAge = document.createElement("td"),
+                        tdRemove = document.createElement("td"),
+                        btnRemove = document.createElement("button");
+
+                    tdName.innerHTML = x.name;
+                    tdJob.innerHTML = x.job;
+                    tdAge.innerHTML = x.age;
+
+                    btnRemove.textContent = 'Remove';
+                    btnRemove.className = 'btn btn-xs btn-danger';
+                    btnRemove.addEventListener('click', function() {
+                        removeFromLocalStorage(i);
+                    });
+
+                    tdRemove.appendChild(btnRemove);
+
+                    tr.appendChild(tdName);
+                    tr.appendChild(tdJob);
+                    tr.appendChild(tdAge);
+                    tr.appendChild(tdRemove);
+
+                    gridBody.appendChild(tr);
+                });
+            }
+
+            function removeFromLocalStorage(index) {
+                var users = [],
+                    dataInLocalStorage = localStorage.getItem(localStorageKeyName);
+
+                users = JSON.parse(dataInLocalStorage);
+
+                users.splice(index, 1);
+
+                localStorage.setItem(localStorageKeyName, JSON.stringify(users));
+
+                loadFromLocalStorage();
+            }
+        }
+    </script>
+</body>
+
+</html>

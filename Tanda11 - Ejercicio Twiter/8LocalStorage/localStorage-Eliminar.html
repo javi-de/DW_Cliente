@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<!--
+Vamos a ver otro ejemplo para ver como eliminar las datos almacenados 
+con un ejemplo de un contador de clicks.
+-->
+<html>
+
+<head>
+    <title>Contador de Clicks</title>
+
+    <script>
+        function contadorClicks() {
+            // Si existe contador se incrementa y sino se inicializa
+            if (localStorage.contador) {
+                // Se convierte el contador a entero porque por defecto es una cadena
+                localStorage.contador = parseInt(localStorage.contador) + 1;
+            } else {
+                localStorage.contador = 1;
+            }
+            document.getElementById("contador").value = localStorage.contador + " Clicks";
+        }
+
+        function resetearClicks() {
+            localStorage.removeItem("contador");
+            document.getElementById("contador").value = "";
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" onclick="contadorClicks()" value="Haz Click" />
+    <input type="text" id="contador" onload="contadorClicks()" />
+    <input type="button" onclick="resetearClicks()" value="Resetear contador" />
+
+</body>
+
+</html>

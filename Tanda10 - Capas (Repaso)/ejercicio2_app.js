@@ -1,20 +1,30 @@
-let posicion= 0;
-let aceleracion= 1;
+let posicion;
+let aceleracion;
 let intervalo;
 let frenando;
+
+window.onload= () =>{
+    posicion= 0;
+    aceleracion= 1;
+
+    botonArrancar= document.getElementById("butArrancar");
+    botonParar= document.getElementById("butParar");
+    botonAcelerar= document.getElementById("butAcelerar");
+    botonDesacelerar= document.getElementById("butDesacelerar");
+}
 
 /**************************************************************************** */
 function arrancar(){
     frenando= false;
-    intervalo= setInterval("movimiento()", 60);
+    intervalo= setInterval(movimiento, 60);
     
     console.log("arrancando");
     //document.getElementById("capaCoche").style.backgroundColor= "red";
 
-    document.getElementById("butArrancar").style.display= "none";
-    document.getElementById("butParar").style.display= "inline-block";
-    document.getElementById("butAcelerar").style.display= "inline-block";
-    document.getElementById("butDesacelerar").style.display= "inline-block";
+    botonArrancar.style.display= "none";
+    botonParar.style.display= "inline-block";
+    botonAcelerar.style.display= "inline-block";
+    botonDesacelerar.style.display= "inline-block";
 }
 
 function movimiento(){
@@ -26,7 +36,7 @@ function movimiento(){
             cochazo.style.left= posicion + "%";       
 
             if(posicion>= meta)
-                posicion= 0;
+                posicion= -50;
         }
 }
 
@@ -40,10 +50,10 @@ function parar(){
     console.log("parando");
     //document.getElementById("capaCoche").style.backgroundColor= "white";
 
-    document.getElementById("butArrancar").style.display= "inline-block";
-    document.getElementById("butParar").style.display= "none";
-    document.getElementById("butAcelerar").style.display= "none";
-    document.getElementById("butDesacelerar").style.display= "none";
+    botonArrancar.style.display= "inline-block";
+    botonParar.style.display= "none";
+    botonAcelerar.style.display= "none";
+    botonDesacelerar.style.display= "none";
 }
 
 /**************************************************************************** */

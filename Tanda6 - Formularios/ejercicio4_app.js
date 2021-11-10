@@ -145,7 +145,6 @@ function mostrarInfo(){
         if(campoHobbies!="")
             eleInformacion.innerHTML+= "<br><strong>Hobbies:</strong> " + campoHobbies;
 
-
         eleContenido.appendChild(eleTitulo);
         eleContenido.appendChild(eleInformacion);
 

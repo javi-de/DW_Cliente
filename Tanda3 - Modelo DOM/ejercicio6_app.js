@@ -87,4 +87,5 @@ function calcularFecha(numActual, strId){
     for(let cont= 1; cont<= array.length; cont ++){
         let indice= numActual[cont-1];
         array[cont-1].querySelector("img").src= arrRutasImgs[indice];
-    }}
+    }
+}

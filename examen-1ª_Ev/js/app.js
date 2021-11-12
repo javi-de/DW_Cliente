@@ -231,7 +231,7 @@ function validarTelefono(){
     console.log(telefono);
 
     let patron1= /^[6|9]{1}\d{8}$/;
-    let patron2= /^\(\+\d{2}\)[6|9]{1}\d{8}$/;
+    let patron2= /^\+\d{2}[6|9]{1}\d{8}$/;
 
     if(!patron1.test(telefono) && !patron2.test(telefono)){
         alert("ERROR. Teléfono en formato incorrecto.");

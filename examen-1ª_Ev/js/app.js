@@ -90,9 +90,7 @@ function validarNombreyAp(fuente){
     }
 }
 
-function validarDireccion(){
-
-    if(eleDireccion.value.length> 50){
+funct){
         alert("ERROR. Dirección errónea: no más de 50 caracteres en total");
         //setTimeout( function(){eleDireccion.focus();}, 100 );
         eleDireccion.value= "";

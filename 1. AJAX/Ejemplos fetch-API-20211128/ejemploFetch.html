@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Fetch</title>
+    <script>
+        window.onload = function(){
+            document.getElementById("aceptar").addEventListener("click", mostrar);
+        }
+
+        function mostrar(){
+            fetch('txema.txt')
+                .then( response => response.text() )
+                .then ( resultText => {
+                    document.getElementById("mensaje").innerHTML = resultText;
+                })
+                .catch( err => console.log(err) );
+        }
+    </script>
+</head>
+<body>
+    <button id="aceptar">Aceptar</button>
+    <p></p>
+    <div id="mensaje"></div>
+</body>
+</html>

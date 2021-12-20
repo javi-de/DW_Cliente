@@ -27,9 +27,12 @@ function buscarCancion(e){
         console.log("Consultando la API");
         const busqueda= new API(artista, cancion);
 
-        console.log(busqueda);
-        
-        if(!busqueda.consultarAPI()){
+        console.log("Artista: " + busqueda.artista);
+        console.log("Cancion: " + busqueda.cancion);
+
+        let cosa= busqueda.consultarAPI();
+
+        if(cosa= "No encontrado"){
             //si no encuentra la canción o el autor, mostrar mensaje de error
             UI.divMensajes.textContent= "Error: cancion o artista desconocido";
             UI.divMensajes.classList.add("error");

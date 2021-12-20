@@ -15,15 +15,17 @@ class API{
         fetch(url)
             .then(respuesta=> respuesta.json())
             .then(resultado=> {
-                //console.log(resultado);
                 console.log(resultado.error);
                 const{lyrics}= resultado;
                 
-                if(resultado.error!== "No lyrics found"){
+                if(resultado.error /* resultado.error== "No lyrics found" */){
+                //si resultado.error existe (está definido)
+                    UI.divResultado.textContent= "";
+                    UI.headingResultado.textContent= resultado.error;
+                }else{
                     UI.divResultado.textContent= lyrics;
                     UI.headingResultado.textContent= `${this.cancion} de ${this.artista}`;
                 }
-
             });
     }
 }

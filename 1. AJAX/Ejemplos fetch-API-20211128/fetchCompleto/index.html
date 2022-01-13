@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <button id="btn">Hacer una conexión con Ajax</button>
+
+    <div id="mensaje"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', configureAjaxCalls);
+
+        function configureAjaxCalls() {
+            document.getElementById('btn').addEventListener('click', function() {
+                fetch('tsext.txt')
+                    .then(mostrarTexto)
+                    .catch(showError);
+            });
+
+            function mostrarTexto(response) {
+                console.log('response.ok: ', response.ok);
+                if (response.ok) {
+                    response.text().then(showResult);
+                } else {
+                    showError('status code: ' + response.status);
+                }
+            }
+
+            function showResult(txt) {
+                console.log('muestro respuesta: ', txt);
+                document.getElementById("mensaje").innerHTML = "<br>" + txt;
+            }
+
+            function showError(err) {
+                console.log('muestor error', err);
+                document.getElementById("mensaje").innerHTML = "<br>Error " + err;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch</title>
+</head>
+
+<body>
+    <button id="btn">Cargar Datos</button>
+
+    <div id="mensaje"></div>
+    <script>
+        document.getElementById("btn").addEventListener('click', cargarDatos);
+
+        function cargarDatos() {
+            fetch("https://opendata.euskadi.eus/contenidos/ds_informes_estudios/covid_19_2020/opendata/generated/covid19-epidemic-status.json")
+                .then(respuestas => respuestas.json())
+                .then(respuestas => mostrarDatos(respuestas))
+        }
+
+        function mostrarDatos(respuestas) {
+            console.log(respuestas);
+            console.log("Fallecidos por COVID");
+            console.log(respuestas.deceasedCount);
+
+            for (var i = 0; i < respuestas.deceasedCount.length; i++) {
+                if (respuestas.deceasedCount[i] > 100) {
+                    console.log(respuestas.byDate[i].date + "-" + respuestas.deceasedCount[i]);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

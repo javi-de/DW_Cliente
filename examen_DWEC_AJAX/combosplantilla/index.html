@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Combos</title>
+    <style type="text/css">
+        body {
+            font-family: Verdana, Geneva, sans-serif
+        }
+        
+        #divtitulo {
+            width: 525px;
+            text-align: center;
+        }
+        
+        #divinformacion {
+            width: 525px;
+            text-align: center;
+        }
+        
+        form {
+            width: 525px;
+        }
+        
+        label {
+            width: 100px;
+            float: left;
+            text-align: right;
+            padding-right: 5px;
+        }
+        
+        select {
+            text-align: left;
+            width: 420px;
+            padding-left: 5px;
+        }
+        
+        #divprecio {
+            text-align: center;
+            widows: 100%;
+        }
+    </style>
+
+    <script src="script/app.js">
+    </script>
+</head>
+
+<body>
+    <div id="divtitulo">
+        <h1>ORDENADORES</h1>
+    </div>
+    <form action="">
+        <div id="divopcion1">
+            <label for="opcion1">Tipo:</label>
+            <select id="opcion1">
+					<option value="0">Seleccionar un tipo</option>   
+				</select>
+        </div>
+        <div id="divopcion2" style="display: none;">
+            <label for="opcion2">Procesador:</label>
+            <select id="opcion2"></select>
+        </div>
+        <div id="divopcion3" style="display: none;">
+            <label for="opcion3">Disco duro:</label>
+            <select id="opcion3"></select>
+        </div>
+        <div id="divprecio"><input type="button" value="Calcular precio" id="precio" disabled/></div>
+        <div id="divinformacion"></div>
+    </form>
+</body>
+
+</html>

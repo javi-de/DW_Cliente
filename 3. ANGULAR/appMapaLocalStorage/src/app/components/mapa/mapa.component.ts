@@ -5,7 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './mapa.component.html',
   styleUrls: ['./mapa.component.css']
 })
+
 export class MapaComponent implements OnInit {
+
+  lat= 51.678418;
+  lng= 7.809007;
 
   constructor() { }
 

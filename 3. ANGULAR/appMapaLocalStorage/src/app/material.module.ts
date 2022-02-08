@@ -17,7 +17,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSliderModule,
     MatToolbarModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatCardModule
   ],
   exports: [
     MatSliderModule,

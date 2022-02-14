@@ -8,17 +8,19 @@ function loadTxt(){
 }
 
 function loadJSON() {
-    var empleados = "";
+    var empleados = "<ol>";
 
     fetch('empleados.json')
         .then(respuesta => respuesta.json())
         .then(datos => {
             //console.log(datos);
-
+            
             datos.forEach(datos => {
-                empleados += datos.nombre + " - " + datos.puesto + "<br>";
+                empleados += "<li>" + datos.nombre + " - " + datos.puesto + "</li>";
 
             });
+
+            empleados+="</ol>";
             document.getElementById("resultado").innerHTML= "<br>" + empleados;
         })
         .catch(
@@ -27,9 +29,13 @@ function loadJSON() {
 }
 
 function loadAPI(){
-    fetch("https://picsum.photos/list")
+    const url= "https://picsum.photos/list";
+    fetch(url)
             .then(respuestas => respuestas.json())
             .then(respuestas => insertarDatosEnHtml(respuestas))
+            .catch(
+                document.getElementById("resultado").innerHTML= "LA API no existe"
+            );
 }
 
 function insertarDatosEnHtml(respuestas) {
@@ -41,7 +47,7 @@ function insertarDatosEnHtml(respuestas) {
 
     respuestas.forEach(respuesta => {
         if(respuesta.width>5500)
-            infoAutorImg+= respuesta.author + " - <a href='" + respuesta.post_url + "'>Ver imagen</a><br>";
+            infoAutorImg+= "<a href='" + respuesta.post_url + "'>Ver imagen</a> - " + respuesta.author + "<br>";
 
     });
 
